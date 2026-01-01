@@ -1,0 +1,6 @@
+# Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://squarefacegenerator.run/sitemap.xml
