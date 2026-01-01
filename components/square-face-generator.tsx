@@ -14,6 +14,9 @@ export function SquareFaceGenerator() {
   const [avatarState, setAvatarState] = useState<AvatarState>(getDefaultState())
   const [activeCategory, setActiveCategory] = useState("skin")
   const [showShareModal, setShowShareModal] = useState(false)
+  const [avatarImageData, setAvatarImageData] = useState<string | null>(null)
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null)
+  const [uploading, setUploading] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const handleFeatureChange = useCallback((category: string, value: number) => {
@@ -42,40 +45,110 @@ export function SquareFaceGenerator() {
     const canvas = canvasRef.current
     if (!canvas) return
 
+    const imageData = canvas.toDataURL("image/png")
+    setAvatarImageData(imageData)
+
     const link = document.createElement("a")
     link.download = "square-face-avatar.png"
-    link.href = canvas.toDataURL("image/png")
+    link.href = imageData
     link.click()
     setShowShareModal(true)
   }, [])
 
-  // Social media share handlers
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "https://squareface-generator.com"
-  const shareText = "Check out my cute square face avatar! Create yours at Square Face Generator"
+  // Upload image to get public URL
+  const uploadImageForShare = useCallback(async () => {
+    if (uploadedImageUrl) return uploadedImageUrl
 
-  const handleShareX = useCallback(() => {
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`
-    window.open(url, "_blank", "width=550,height=420")
-  }, [])
+    const canvas = canvasRef.current
+    if (!canvas) return null
 
-  const handleShareFacebook = useCallback(() => {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`
-    window.open(url, "_blank", "width=550,height=420")
-  }, [])
+    setUploading(true)
+
+    try {
+      const imageData = canvas.toDataURL("image/png")
+      const response = await fetch(imageData)
+      const blob = await response.blob()
+
+      const formData = new FormData()
+      formData.append('image', blob)
+
+      // Upload to ImgBB
+      const uploadResponse = await fetch('https://api.imgbb.com/1/upload?key=4d1d3e5e8c0b4a8a9f0f8f8f8f8f8f8f', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await uploadResponse.json()
+
+      if (data.success) {
+        const url = data.data.url
+        setUploadedImageUrl(url)
+        return url
+      }
+    } catch (error) {
+      console.error('Upload failed:', error)
+    } finally {
+      setUploading(false)
+    }
+
+    return null
+  }, [uploadedImageUrl])
+
+  // Social media share handlers with image
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "https://squarefacegenerator.run"
+  const shareText = "Check out my cute square face avatar! Create yours at"
+  const shareHashtags = "#SquareFaceGenerator #PixelAvatar #AvatarMaker"
+
+  const handleShareX = useCallback(async () => {
+    const imageUrl = await uploadImageForShare()
+    const text = imageUrl
+      ? `${shareText} ${shareUrl}\n\n${shareHashtags}\n\n${imageUrl}`
+      : `${shareText} ${shareUrl}\n\n${shareHashtags}`
+
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "width=550,height=420"
+    )
+  }, [uploadImageForShare])
+
+  const handleShareFacebook = useCallback(async () => {
+    const imageUrl = await uploadImageForShare()
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText + " " + shareHashtags)}`,
+      "_blank",
+      "width=550,height=420"
+    )
+  }, [uploadImageForShare])
 
   const handleShareTikTok = useCallback(() => {
-    // Open TikTok web upload page
+    const text = `${shareText} ${shareUrl}\n\n${shareHashtags}`
+    navigator.clipboard.writeText(text)
+    alert("Caption copied! Upload your avatar on TikTok and paste the caption.")
     window.open("https://www.tiktok.com/upload", "_blank")
   }, [])
 
-  const handleSharePinterest = useCallback(() => {
-    const url = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&description=${encodeURIComponent(shareText)}`
-    window.open(url, "_blank", "width=550,height=420")
-  }, [])
+  const handleSharePinterest = useCallback(async () => {
+    const imageUrl = await uploadImageForShare()
+    const params = new URLSearchParams({
+      url: shareUrl,
+      description: `${shareText} ${shareHashtags}`,
+    })
+    if (imageUrl) {
+      params.append('media', imageUrl)
+    }
+
+    window.open(
+      `https://pinterest.com/pin/create/button/?${params.toString()}`,
+      "_blank",
+      "width=550,height=420"
+    )
+  }, [uploadImageForShare])
 
   const handleCopyLink = useCallback(() => {
-    navigator.clipboard.writeText(shareUrl)
-    // You could add a toast notification here
+    const text = `${shareText} ${shareUrl}\n\n${shareHashtags}`
+    navigator.clipboard.writeText(text)
+    alert("Caption copied!")
   }, [])
 
   return (
@@ -122,6 +195,8 @@ export function SquareFaceGenerator() {
               <div className="flex items-center justify-center gap-2 mb-3">
                 <Share2 className="w-4 h-4 text-gray-600" />
                 <span className="text-sm font-semibold text-gray-700">Share</span>
+                {uploading && <span className="text-xs text-pink-500">Uploading...</span>}
+                {uploadedImageUrl && <span className="text-xs text-green-500">✓ Ready</span>}
               </div>
               <div className="flex justify-center gap-2">
                 {/* X (Twitter) */}
@@ -222,7 +297,7 @@ export function SquareFaceGenerator() {
       </div>
 
       {/* Share Modal */}
-      <ShareModal open={showShareModal} onClose={() => setShowShareModal(false)} />
+      <ShareModal open={showShareModal} onClose={() => setShowShareModal(false)} avatarImageData={avatarImageData} uploadedImageUrl={uploadedImageUrl} />
 
       {/* Footer */}
       <footer className="text-center mt-8 text-gray-500 text-sm">

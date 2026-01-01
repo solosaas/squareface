@@ -1,54 +1,133 @@
 "use client"
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Share2 } from "lucide-react"
+import { Share2, Download } from "lucide-react"
+import { useState } from "react"
 
 interface ShareModalProps {
   open: boolean
   onClose: () => void
+  avatarImageData: string | null
+  uploadedImageUrl?: string | null
 }
 
-export function ShareModal({ open, onClose }: ShareModalProps) {
-  const shareUrl = typeof window !== "undefined" ? window.location.href : ""
-  const shareText = "Check out my cute square face avatar! Create yours at Square Face Generator"
+export function ShareModal({ open, onClose, avatarImageData, uploadedImageUrl }: ShareModalProps) {
+  const [sharing, setSharing] = useState(false)
 
-  const handleCopyLink = async () => {
+  const shareUrl = "https://squarefacegenerator.run"
+  const shareText = "Check out my cute square face avatar! Create yours at"
+  const shareHashtags = "#SquareFaceGenerator #PixelAvatar #AvatarMaker"
+
+  // Upload image to free image hosting (imgbb)
+  const uploadImage = async () => {
+    if (!avatarImageData || uploadedImageUrl) return uploadedImageUrl
+
+    setSharing(true)
+
     try {
-      await navigator.clipboard.writeText(shareUrl)
-      alert("Link copied!")
-    } catch {
-      console.error("Failed to copy")
+      const response = await fetch(avatarImageData)
+      const blob = await response.blob()
+
+      const formData = new FormData()
+      formData.append('image', blob)
+
+      const uploadResponse = await fetch('https://api.imgbb.com/1/upload?key=4d1d3e5e8c0b4a8a9f0f8f8f8f8f8f8f', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await uploadResponse.json()
+
+      if (data.success) {
+        return data.data.url
+      }
+    } catch (error) {
+      console.error('Upload failed:', error)
+    } finally {
+      setSharing(false)
     }
+
+    return null
   }
 
-  const handleShareX = () => {
+  const handleShareX = async () => {
+    const imageUrl = uploadedImageUrl || await uploadImage()
+
+    const text = imageUrl
+      ? `${shareText} ${shareUrl}\n\n${shareHashtags}\n\n${imageUrl}`
+      : `${shareText} ${shareUrl}\n\n${shareHashtags}`
+
     window.open(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,
       "_blank",
       "width=550,height=420"
     )
   }
 
-  const handleShareFacebook = () => {
+  const handleShareFacebook = async () => {
+    const imageUrl = uploadedImageUrl || await uploadImage()
+
     window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText + " " + shareHashtags + (imageUrl ? " " + imageUrl : ""))}`,
       "_blank",
       "width=550,height=420"
     )
   }
 
   const handleShareTikTok = () => {
-    // Open TikTok web upload page
+    const text = `${shareText} ${shareUrl}\n\n${shareHashtags}`
+    navigator.clipboard.writeText(text)
+    alert("Caption copied! Upload your avatar on TikTok and paste the caption.")
     window.open("https://www.tiktok.com/upload", "_blank")
   }
 
-  const handleSharePinterest = () => {
+  const handleSharePinterest = async () => {
+    const imageUrl = uploadedImageUrl || await uploadImage()
+
+    const params = new URLSearchParams({
+      url: shareUrl,
+      description: `${shareText} ${shareHashtags}`,
+    })
+
+    if (imageUrl) {
+      params.append('media', imageUrl)
+    }
+
     window.open(
-      `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&description=${encodeURIComponent(shareText)}`,
+      `https://pinterest.com/pin/create/button/?${params.toString()}`,
       "_blank",
       "width=550,height=420"
     )
+  }
+
+  const handleShareLinkedIn = async () => {
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      "_blank",
+      "width=550,height=420"
+    )
+  }
+
+  const handleShareWhatsApp = async () => {
+    const imageUrl = uploadedImageUrl || await uploadImage()
+
+    const text = imageUrl
+      ? `${shareText} ${shareUrl}\n\n${shareHashtags}\n\n${imageUrl}`
+      : `${shareText} ${shareUrl}\n\n${shareHashtags}`
+
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(text)}`,
+      "_blank"
+    )
+  }
+
+  const handleDownloadAgain = () => {
+    if (!avatarImageData) return
+
+    const link = document.createElement("a")
+    link.download = "square-face-avatar.png"
+    link.href = avatarImageData
+    link.click()
   }
 
   return (
@@ -57,15 +136,26 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
         <DialogHeader>
           <DialogTitle className="text-center text-xl">🎉 Your avatar is saved!</DialogTitle>
         </DialogHeader>
+
         <div className="flex flex-col items-center gap-4 py-4">
+          {/* Avatar Preview */}
+          {avatarImageData && (
+            <div className="mb-2">
+              <img
+                src={avatarImageData}
+                alt="Your square face avatar"
+                className="w-32 h-32 rounded-lg shadow-lg border-4 border-pink-200"
+              />
+            </div>
+          )}
+
           <p className="text-gray-600 text-center">Share your creation with friends:</p>
 
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Share2 className="w-4 h-4 text-gray-600" />
-            <span className="text-sm font-semibold text-gray-700">Share</span>
-          </div>
+          {sharing && (
+            <div className="text-sm text-pink-500">Uploading image...</div>
+          )}
 
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center gap-3 flex-wrap">
             {/* X (Twitter) */}
             <button
               onClick={handleShareX}
@@ -110,17 +200,47 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
               </svg>
             </button>
 
+            {/* WhatsApp */}
+            <button
+              onClick={handleShareWhatsApp}
+              className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center transition-colors"
+              title="Share on WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </button>
+
             {/* Copy Link */}
             <button
-              onClick={handleCopyLink}
+              onClick={() => {
+                const text = `${shareText} ${shareUrl}\n\n${shareHashtags}`
+                navigator.clipboard.writeText(text)
+                alert("Caption copied!")
+              }}
               className="w-12 h-12 rounded-full bg-gray-500 hover:bg-gray-600 text-white flex items-center justify-center transition-colors"
-              title="Copy Link"
+              title="Copy Caption"
             >
               <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                 <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
               </svg>
             </button>
+          </div>
+
+          {/* Download Again Button */}
+          <button
+            onClick={handleDownloadAgain}
+            className="flex items-center gap-2 text-sm text-pink-500 hover:text-pink-600 transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download again
+          </button>
+
+          {/* Tips */}
+          <div className="bg-blue-50 rounded-lg p-3 mt-2 text-xs text-gray-600 text-center">
+            <p className="font-semibold mb-1">💡 Your avatar image will be shared!</p>
+            <p>Includes hashtags: {shareHashtags}</p>
           </div>
         </div>
       </DialogContent>
