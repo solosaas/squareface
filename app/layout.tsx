@@ -8,11 +8,10 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Square Face Generator - 方块脸头像生成器",
+  title: "Square Face Generator - Create Cute Pixel Avatars",
   description:
     "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
   keywords: "square face generator, avatar maker, icon generator, profile picture",
-  generator: "v0.app",
   icons: {
     icon: [
       {
