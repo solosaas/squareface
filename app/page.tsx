@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013. Free Picrew alternative for Discord, Twitter, TikTok PFP.",
   keywords: "square face generator, square face icon generator, flashmuseum, icon generator, square face generator free, square face generator picrew, square face generator online, square face icon generator picrew, square face generator anime, square face generator flash museum, square face generator aesthetic, square face generator pfp, h071019, pixel avatar maker, picrew alternative",
   openGraph: {
+    type: "website",
     title: "Square Face Generator - Flash Museum Classic is Back!",
     description: "Remember making cute pixel avatars in 2013? The original Square Face Icon Generator by h071019 is back online. Free Picrew alternative for Discord & Twitter PFP!",
     url: "https://squarefacegenerator.run/",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@squarefacegen",
     title: "🎮 The Classic Icon Generator is BACK! ✨ Create Your Avatar Now",
     description: "Remember 2013? Create cute pixel avatars in SECONDS! 🎨 Free, no signup, instant download. Your perfect Discord PFP awaits! 🚀",
     images: ["https://squarefacegenerator.run/avatars/competitor-8.png"],
