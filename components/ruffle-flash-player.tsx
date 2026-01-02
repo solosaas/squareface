@@ -44,7 +44,7 @@ export function RuffleFlashPlayer({
           url: swfUrl,
           autoplay: "on",
           unmuteOverlay: "hidden",
-          backgroundColor: "#000000",
+          backgroundColor: "#FFF0F5",
           letterbox: "on",
           warnOnUnsupportedContent: false,
           contextMenu: "off",
@@ -69,7 +69,7 @@ export function RuffleFlashPlayer({
     ;(window as any).RufflePlayer.config = {
       autoplay: "on",
       unmuteOverlay: "hidden",
-      backgroundColor: "#000000",
+      backgroundColor: "#FFF0F5",
       letterbox: "on",
       warnOnUnsupportedContent: false,
       contextMenu: "off",
@@ -100,7 +100,7 @@ export function RuffleFlashPlayer({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#000",
+          backgroundColor: "#FFF0F5",
           position: "relative",
         }}
       >
@@ -114,17 +114,17 @@ export function RuffleFlashPlayer({
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "rgba(0,0,0,0.9)",
+              backgroundColor: "rgba(255, 240, 245, 0.95)",
               zIndex: 10,
-              color: "white",
+              color: "#ec4899",
             }}
           >
             <div
               style={{
                 width: 48,
                 height: 48,
-                border: "3px solid #333",
-                borderTopColor: "#fff",
+                border: "3px solid #f9a8d4",
+                borderTopColor: "#ec4899",
                 borderRadius: "50%",
                 animation: "spin 1s linear infinite",
               }}
@@ -143,9 +143,9 @@ export function RuffleFlashPlayer({
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "rgba(139,0,0,0.9)",
+              backgroundColor: "rgba(255, 240, 245, 0.95)",
               zIndex: 10,
-              color: "white",
+              color: "#dc2626",
               padding: 20,
               textAlign: "center",
             }}
@@ -158,8 +158,8 @@ export function RuffleFlashPlayer({
               style={{
                 marginTop: 16,
                 padding: "8px 24px",
-                backgroundColor: "white",
-                color: "#8b0000",
+                backgroundColor: "#ec4899",
+                color: "white",
                 border: "none",
                 borderRadius: 8,
                 cursor: "pointer",

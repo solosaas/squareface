@@ -685,10 +685,51 @@ ruffle-embed canvas {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 4px solid var(--kawaii-dark);
+  border: 2px solid var(--kawaii-pink-light);
   box-shadow:
     var(--shadow-pixel),
-    0 0 30px oklch(0.78 0.12 350 / 0.3);
+    0 0 20px oklch(0.78 0.12 350 / 0.2);
+  background: #FFF0F5;
+}
+
+/* Mobile - no borders, full width */
+@media (max-width: 768px) {
+  .ruffle-player-container {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove padding from section containing ruffle player */
+  section:has(.ruffle-player-container) {
+    padding: 0 !important;
+  }
+
+  .ruffle-player-container + * {
+    /* Tips and other content below */
+    padding: 1rem;
+  }
+}
+
+/* Ensure ruffle player and canvas use theme background */
+.ruffle-player-container ruffle-player,
+.ruffle-player-container ruffle-player *,
+.ruffle-player-container #container,
+.ruffle-player-container #container canvas,
+.ruffle-player-container canvas {
+  background: #FFF0F5 !important;
+  background-color: #FFF0F5 !important;
+}
+
+/* Force letterbox areas to theme color */
+.ruffle-player-container [data-ruffle-player] *,
+.ruffle-player-container [id*="ruffle"] * {
+  background-color: #FFF0F5 !important;
+}
+
+/* Specifically target the letterbox div */
+#container > div:last-child {
+  background: #FFF0F5 !important;
 }
 
 .ruffle-player-container:fullscreen,
@@ -697,7 +738,7 @@ ruffle-embed canvas {
   height: 100vh !important;
   max-width: none !important;
   max-height: none !important;
-  background: var(--kawaii-dark) !important;
+  background: #FFF0F5 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1014,9 +1055,13 @@ ruffle-embed canvas {
       4px 4px 0 var(--kawaii-purple);
   }
 
+  /* Remove all borders/padding from kawaii-card on mobile */
   .kawaii-card {
-    border-radius: var(--radius-lg);
-    border-width: 2px;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .kawaii-btn {

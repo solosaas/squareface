@@ -39,8 +39,8 @@ function drawAvatar(ctx: CanvasRenderingContext2D, state: AvatarState, size: num
   ctx.save()
   ctx.scale(scale, scale)
 
-  // Background
-  ctx.fillStyle = "#f0f0f0"
+  // Background - Use theme color (light pink)
+  ctx.fillStyle = "#FFF0F5"
   ctx.fillRect(0, 0, 256, 256)
 
   // Face base (square shape)
