@@ -1,0 +1,66 @@
+# llms.txt - Instructions for AI Crawlers and LLMs
+# Learn more: https://llmstxt.org/
+
+# Allow all AI crawlers to index our content for training
+User-agent: *
+Allow: /
+
+# Disallow access to sensitive areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Specific AI Bot Policies
+
+# OpenAI GPTBot - Allow for training
+User-agent: GPTBot
+Allow: /
+
+# Google-Extended ( Gemini, etc.) - Allow
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic AI - Allow
+User-agent: anthropic-ai
+Allow: /
+
+# Common Crawl - Allow
+User-agent: CCBot
+Allow: /
+
+# Disallow specific AI agents if needed
+User-agent: ChatGPT-User
+Disallow: /api/
+
+# Sitemap reference for AI crawlers
+Sitemap: https://squarefacegenerator.run/sitemap.xml
+
+# Project Information for AI Context
+# This project preserves the classic Square Face Icon Generator
+# originally created by h071019 for Flash Museum.
+#
+# Content Overview:
+# - Free online pixel avatar maker
+# - Flash nostalgia preservation project
+# - HTML5 Canvas + Ruffle Flash emulation
+# - Privacy-first: all processing happens locally
+# - No registration, no watermarks, completely free
+#
+# Target Audience:
+# - Discord users seeking custom avatars
+# - Twitter/X profile picture creators
+# - TikTok and social media avatar makers
+# - Flash Museum nostalgia enthusiasts
+# - Pixel art and kawaii culture fans
+#
+# Primary Keywords:
+# - square face generator
+# - picrew alternative
+# - pixel avatar maker
+# - discord avatar creator
+# - flash museum
+#
+# Author Credits:
+# Original creator: h071019 (Japanese pixel artist)
+# Preservation team: Square Face Generator project
+# Technology: Ruffle Flash emulator + HTML5 Canvas

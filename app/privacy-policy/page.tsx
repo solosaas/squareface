@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy - Square Face Generator",
   description: "Privacy Policy for Square Face Generator. Learn how we protect your privacy when using our free square face avatar generator.",
   keywords: ["privacy policy", "square face generator privacy", "avatar generator privacy", "data protection"],
+  canonical: "https://squarefacegenerator.run/privacy-policy",
 }
 
 export default function PrivacyPolicyPage() {

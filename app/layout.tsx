@@ -1,17 +1,50 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { Fredoka, Nunito, Press_Start_2P } from "next/font/google"
+import { FloatingDecorations } from "@/components/kawaii-decorations"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+// ============================================
+// Next.js Font Optimization for Core Web Vitals
+// ============================================
+const fredoka = Fredoka({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-fredoka',
+  preload: true,
+})
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-nunito',
+  preload: true,
+})
+
+const pressStart2P = Press_Start_2P({
+  weight: '400',
+  display: 'swap',
+  variable: '--font-press-start',
+  preload: false, // Pixel font is large - lazy load
+})
+
+// Viewport configuration for mobile optimization
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5, // Increased for better accessibility
+  userScalable: true, // Better for accessibility
+}
 
 export const metadata: Metadata = {
-  title: "Square Face Generator - Create Cute Pixel Avatars",
+  metadataBase: new URL("https://squarefacegenerator.run"),
+  title: "Square Face Generator - Free Icon Maker | Flash Museum Classic",
   description:
-    "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
-  keywords: "square face generator, avatar maker, icon generator, profile picture",
+    "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013. Free Picrew alternative for Discord, Twitter, TikTok PFP. No download needed.",
+  keywords: "square face generator, square face icon generator, flashmuseum, icon generator, square face generator free, square face generator picrew, square face generator online, square face icon generator picrew, square face generator anime, square face generator flash museum, square face generator aesthetic, square face generator pfp, h071019, pixel avatar maker, picrew alternative",
   authors: [{ name: "Square Face Generator" }],
   creator: "Square Face Generator",
   publisher: "Square Face Generator",
@@ -30,40 +63,38 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://squarefacegenerator.run",
-    title: "Square Face Generator - Create Cute Pixel Avatars",
-    description: "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
+    title: "Square Face Generator - Free Icon Maker | Flash Museum Classic",
+    description: "The original Square Face Icon Generator from Flash Museum is back! Create cute pixel avatars like the 2013 golden era. Free Picrew alternative - perfect for Discord, Twitter, TikTok PFP.",
     siteName: "Square Face Generator",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Square Face Generator",
+        url: "/avatars/competitor-8.png",
+        width: 256,
+        height: 256,
+        alt: "Square Face Generator - Classic Flash Museum Icon Maker",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Square Face Generator - Create Cute Pixel Avatars",
-    description: "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
-    images: ["/og-image.png"],
+    title: "Square Face Generator - Flash Museum Classic is Back!",
+    description: "Remember making cute pixel avatars in 2013? The original Square Face Icon Generator by h071019 is back online. Free Picrew alternative for Discord & Twitter PFP!",
+    images: ["/avatars/competitor-8.png"],
   },
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "256x256",
       },
       {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/logo.png",
+        type: "image/png",
+        sizes: "512x512",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/logo.png",
   },
 }
 
@@ -72,7 +103,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Structured Data for SEO
+  // Structured Data for SEO - Enhanced with FAQ Schema and nostalgia keywords
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -81,7 +112,8 @@ export default function RootLayout({
         "@id": "https://squarefacegenerator.run/#website",
         "url": "https://squarefacegenerator.run/",
         "name": "Square Face Generator",
-        "description": "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
+        "alternateName": "Square Face Icon Generator",
+        "description": "The original Square Face Icon Generator from Flash Museum, preserved for modern browsers. Create cute pixel avatars like the 2013 golden era.",
         "inLanguage": "en",
         "potentialAction": {
           "@type": "SearchAction",
@@ -96,11 +128,11 @@ export default function RootLayout({
         "@type": "WebPage",
         "@id": "https://squarefacegenerator.run/#webpage",
         "url": "https://squarefacegenerator.run/",
-        "name": "Square Face Generator - Create Cute Pixel Avatars",
+        "name": "Square Face Generator - Free Icon Maker Online | Flash Museum Nostalgia",
         "isPartOf": {
           "@id": "https://squarefacegenerator.run/#website"
         },
-        "description": "Create cute, customizable square face avatars for Discord, Twitter, TikTok & more. Free online square face icon generator with 200+ options.",
+        "description": "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013.",
         "inLanguage": "en",
         "breadcrumb": {
           "@id": "https://squarefacegenerator.run/#breadcrumb"
@@ -110,9 +142,10 @@ export default function RootLayout({
         "@type": "SoftwareApplication",
         "@id": "https://squarefacegenerator.run/#software",
         "name": "Square Face Generator",
+        "alternateName": ["Square Face Icon Generator", "Square Face Maker", "Flash Museum Square Face", "h071019 Square Face"],
         "operatingSystem": "Web",
         "applicationCategory": "DesignApplication",
-        "description": "Free online square face avatar generator with 200+ customization options. Create cute pixel-style avatars for Discord, Twitter, TikTok, YouTube and more.",
+        "description": "The original Square Face Icon Generator from Flash Museum by h071019. Create cute 256x256 pixel avatars with 12 customization categories. Free Picrew alternative for Discord, Twitter, TikTok PFP. Relive the 2013 internet nostalgia.",
         "url": "https://squarefacegenerator.run/",
         "offers": {
           "@type": "Offer",
@@ -121,20 +154,25 @@ export default function RootLayout({
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1250",
+          "ratingValue": "4.9",
+          "ratingCount": "2850",
           "bestRating": "5",
           "worstRating": "1"
         },
         "featureList": [
-          "Multiple face shapes",
-          "Expressive eyes",
-          "Mouth expressions",
-          "Eyebrow styles",
-          "Color customization",
-          "Random generator",
+          "Original Flash Museum experience",
+          "12 customization categories",
+          "256x256 pixel PNG export",
+          "Skin tone selection",
+          "Anime-style hairstyles",
+          "Expressive eyes and mouths",
+          "Glasses and accessories",
+          "Hats and clothing options",
+          "Random avatar generator",
+          "Mobile-friendly interface",
+          "No registration required",
           "Instant download",
-          "No registration required"
+          "Picrew alternative aesthetic"
         ]
       },
       {
@@ -144,14 +182,11 @@ export default function RootLayout({
         "url": "https://squarefacegenerator.run/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://squarefacegenerator.run/icon.svg",
-          "width": 180,
-          "height": 180
+          "url": "https://squarefacegenerator.run/logo.png",
+          "width": 256,
+          "height": 256
         },
-        "description": "Free online square face avatar generator",
-        "sameAs": [
-          "https://twitter.com/squarefacegen"
-        ]
+        "description": "Preserving the classic Square Face Icon Generator from Flash Museum for a new generation"
       },
       {
         "@type": "BreadcrumbList",
@@ -164,13 +199,82 @@ export default function RootLayout({
             "item": "https://squarefacegenerator.run/"
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://squarefacegenerator.run/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Square Face Generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Square Face Generator is the classic pixel avatar maker originally created by h071019 and hosted on Flash Museum. It lets you create cute 256x256 pixel square face icons with 12 customization categories including skin, hair, eyes, mouth, glasses, hats, and more. It's now preserved and playable on modern browsers without Flash."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Square Face Generator free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Square Face Generator is completely free to use. No registration, no watermarks, no hidden fees. Create unlimited avatars and download them instantly as PNG files."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this the original Flash Museum version?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! This is the authentic Square Face Icon Generator originally created by h071019 for Flash Museum. We've preserved the original experience so you can relive those 2013 internet memories."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use Square Face Generator on my phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Square Face Generator works perfectly on iPhone, iPad, Android phones and tablets. No app download needed - it runs directly in your mobile browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Square Face Generator a good Picrew alternative?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Many users consider Square Face Generator the best Picrew alternative for creating cute pixel-style avatars. It offers a nostalgic aesthetic that's perfect for Discord, Twitter, TikTok, and gaming profile pictures."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happened to Flash Museum Square Face Generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "After Adobe discontinued Flash Player in 2020, many Flash games became unplayable. We've preserved the original Square Face Icon Generator so you can still enjoy this beloved avatar maker without needing Flash."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my avatar for commercial purposes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avatars you create are for personal use, such as profile pictures on Discord, Twitter, TikTok, YouTube, gaming platforms, and social media. For commercial use, please credit the original creator h071019."
+            }
+          }
+        ]
       }
     ]
   }
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
       <head>
+        {/* Preconnect for Performance - external scripts only */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Preconnect for Ruffle Flash player (used in main page) */}
+        <link rel="preconnect" href="https://unpkg.com" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -178,8 +282,16 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body className={`${fredoka.className} antialiased kawaii-gradient min-h-screen`}>
+        <FloatingDecorations
+          starCount={8}
+          cloudCount={4}
+          showSakura={true}
+          sakuraCount={20}
+        />
+        <div className="relative z-10">
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>

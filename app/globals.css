@@ -1,125 +1,1048 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* ============================================
+   🎮 KAWAII PIXEL WORLD - Design System
+   融合: 游戏性 + 可爱风格 + 日漫美学
+   ============================================ */
+
+/* Fonts are loaded via next/font in layout.tsx for optimal Core Web Vitals */
+
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================
+   🎨 Color Palette - Kawaii Candy Colors
+   ============================================ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* Primary Kawaii Colors */
+  --kawaii-pink: oklch(0.78 0.12 0);
+  --kawaii-pink-light: oklch(0.92 0.06 350);
+  --kawaii-pink-dark: oklch(0.65 0.18 350);
+
+  --kawaii-purple: oklch(0.75 0.12 300);
+  --kawaii-purple-light: oklch(0.9 0.06 300);
+
+  --kawaii-mint: oklch(0.85 0.1 165);
+  --kawaii-mint-light: oklch(0.95 0.05 165);
+
+  --kawaii-yellow: oklch(0.92 0.12 90);
+  --kawaii-yellow-light: oklch(0.97 0.06 90);
+
+  --kawaii-coral: oklch(0.75 0.15 30);
+  --kawaii-sky: oklch(0.82 0.1 230);
+  --kawaii-lavender: oklch(0.85 0.08 280);
+
+  /* Game UI Colors */
+  --pixel-gold: oklch(0.85 0.18 85);
+  --pixel-silver: oklch(0.8 0.02 260);
+  --pixel-bronze: oklch(0.7 0.1 55);
+
+  /* Dark theme for contrast */
+  --kawaii-dark: oklch(0.2 0.05 280);
+  --kawaii-dark-purple: oklch(0.25 0.08 280);
+
+  /* UI Variables */
+  --background: oklch(0.98 0.02 350);
+  --foreground: oklch(0.25 0.05 280);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --card-foreground: oklch(0.25 0.05 280);
+  --primary: var(--kawaii-pink);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--kawaii-purple-light);
+  --secondary-foreground: oklch(0.3 0.05 280);
+  --accent: var(--kawaii-mint);
+  --accent-foreground: oklch(0.25 0.05 165);
+  --muted: oklch(0.95 0.02 280);
+  --muted-foreground: oklch(0.5 0.02 280);
+  --border: oklch(0.9 0.04 350);
+  --input: oklch(0.95 0.02 350);
+  --ring: var(--kawaii-pink);
+
+  /* Spacing & Radius */
+  --radius: 1rem;
+  --radius-sm: 0.75rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-kawaii: 0 4px 20px oklch(0.78 0.12 350 / 0.2);
+  --shadow-kawaii-lg: 0 8px 40px oklch(0.78 0.12 350 / 0.25);
+  --shadow-pixel: 4px 4px 0 oklch(0.25 0.05 280);
+  --shadow-glow-pink: 0 0 20px oklch(0.78 0.12 350 / 0.5);
+  --shadow-glow-mint: 0 0 20px oklch(0.85 0.1 165 / 0.5);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+/* ============================================
+   📝 Typography
+   ============================================ */
+:root {
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-kawaii: 'Fredoka', 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
 }
 
+/* ============================================
+   🎯 Base Styles
+   ============================================ */
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: 'Nunito', 'Fredoka', system-ui, sans-serif;
+  --font-mono: 'Press Start 2P', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background:
+      radial-gradient(ellipse at 20% 0%, oklch(0.95 0.06 350 / 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, oklch(0.9 0.06 300 / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, oklch(0.95 0.05 165 / 0.2) 0%, transparent 70%),
+      var(--background);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
+}
+
+/* ============================================
+   🎮 Pixel Border System
+   ============================================ */
+.pixel-border {
+  position: relative;
+  border: 4px solid var(--kawaii-dark);
+  box-shadow: var(--shadow-pixel);
+}
+
+.pixel-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--kawaii-pink);
+  pointer-events: none;
+}
+
+.pixel-border-soft {
+  border: 3px solid var(--kawaii-pink-dark);
+  box-shadow:
+    3px 3px 0 var(--kawaii-purple),
+    6px 6px 0 oklch(0.78 0.12 350 / 0.3);
+}
+
+/* ============================================
+   💖 Kawaii Card Styles
+   ============================================ */
+.kawaii-card {
+  background: linear-gradient(135deg,
+    oklch(1 0 0) 0%,
+    oklch(0.98 0.02 350) 100%);
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--kawaii-pink);
+  box-shadow:
+    0 4px 0 var(--kawaii-pink-dark),
+    0 8px 30px oklch(0.78 0.12 350 / 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.kawaii-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--kawaii-pink),
+    var(--kawaii-purple),
+    var(--kawaii-mint),
+    var(--kawaii-yellow),
+    var(--kawaii-pink));
+  background-size: 200% 100%;
+  animation: rainbow-shift 3s linear infinite;
+}
+
+@keyframes rainbow-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Game-style card */
+.game-card {
+  background:
+    linear-gradient(180deg,
+      oklch(1 0 0) 0%,
+      oklch(0.97 0.02 90) 100%);
+  border-radius: var(--radius-lg);
+  border: 4px solid var(--kawaii-dark);
+  box-shadow: var(--shadow-pixel);
+  position: relative;
+}
+
+.game-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 2px dashed var(--kawaii-pink);
+  border-radius: calc(var(--radius-lg) - 8px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ============================================
+   🌟 Kawaii Button Styles
+   ============================================ */
+.kawaii-btn {
+  font-family: var(--font-kawaii);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.kawaii-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    oklch(1 0 0 / 0.3),
+    transparent);
+  transition: left 0.5s;
+}
+
+.kawaii-btn:hover::before {
+  left: 100%;
+}
+
+.kawaii-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px var(--shadow-kawaii);
+}
+
+.kawaii-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Primary Button */
+.kawaii-btn-primary {
+  background: linear-gradient(135deg,
+    var(--kawaii-pink) 0%,
+    var(--kawaii-coral) 100%);
+  color: white;
+  border-color: var(--kawaii-pink-dark);
+  box-shadow:
+    0 4px 0 var(--kawaii-pink-dark),
+    0 6px 20px oklch(0.78 0.12 350 / 0.3);
+}
+
+.kawaii-btn-primary:hover {
+  box-shadow:
+    0 6px 0 var(--kawaii-pink-dark),
+    0 10px 30px oklch(0.78 0.12 350 / 0.4);
+}
+
+/* Secondary Button */
+.kawaii-btn-secondary {
+  background: linear-gradient(135deg,
+    var(--kawaii-purple-light) 0%,
+    var(--kawaii-lavender) 100%);
+  color: var(--kawaii-dark);
+  border-color: var(--kawaii-purple);
+  box-shadow: 0 4px 0 var(--kawaii-purple);
+}
+
+/* Mint Button */
+.kawaii-btn-mint {
+  background: linear-gradient(135deg,
+    var(--kawaii-mint) 0%,
+    var(--kawaii-mint-light) 100%);
+  color: var(--kawaii-dark);
+  border-color: oklch(0.7 0.12 165);
+  box-shadow: 0 4px 0 oklch(0.7 0.12 165);
+}
+
+/* Pixel Button */
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(180deg,
+    var(--kawaii-yellow) 0%,
+    var(--pixel-gold) 100%);
+  border: 4px solid var(--kawaii-dark);
+  box-shadow: var(--shadow-pixel);
+  color: var(--kawaii-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.pixel-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--kawaii-dark);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--kawaii-dark);
+}
+
+/* ============================================
+   ⭐ Floating Decorations
+   ============================================ */
+
+/* Star burst animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-5deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--kawaii-pink), 0 0 20px oklch(0.78 0.12 350 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--kawaii-pink), 0 0 40px oklch(0.78 0.12 350 / 0.5);
+  }
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(100px) rotate(720deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Floating star */
+.floating-star {
+  animation: float 3s ease-in-out infinite, twinkle 2s ease-in-out infinite;
+}
+
+/* Floating cloud */
+.floating-cloud {
+  animation: float-reverse 4s ease-in-out infinite;
+}
+
+/* Sakura petal */
+.sakura-petal {
+  position: fixed;
+  pointer-events: none;
+  animation: sakura-fall linear forwards;
+  z-index: 1000;
+}
+
+/* ============================================
+   🎀 Title Styles
+   ============================================ */
+.kawaii-title {
+  font-family: var(--font-kawaii);
+  font-weight: 700;
+  background: linear-gradient(135deg,
+    var(--kawaii-pink) 0%,
+    var(--kawaii-purple) 50%,
+    var(--kawaii-coral) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  position: relative;
+  display: inline-block;
+}
+
+.pixel-title {
+  font-family: var(--font-pixel);
+  color: var(--kawaii-dark);
+  text-shadow:
+    3px 3px 0 var(--kawaii-pink),
+    6px 6px 0 var(--kawaii-purple);
+  letter-spacing: 2px;
+}
+
+/* Rainbow text animation */
+.rainbow-text {
+  background: linear-gradient(90deg,
+    var(--kawaii-pink),
+    var(--kawaii-coral),
+    var(--kawaii-yellow),
+    var(--kawaii-mint),
+    var(--kawaii-sky),
+    var(--kawaii-purple),
+    var(--kawaii-pink));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-shift 3s linear infinite;
+}
+
+/* ============================================
+   🎮 Game UI Elements
+   ============================================ */
+
+/* HP/Progress Bar */
+.game-progress {
+  height: 24px;
+  background: var(--kawaii-dark);
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: inset 0 2px 4px oklch(0 0 0 / 0.3);
+}
+
+.game-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(180deg,
+    var(--kawaii-mint) 0%,
+    oklch(0.7 0.12 165) 100%);
+  box-shadow: inset 0 -2px 0 oklch(0 0 0 / 0.2);
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Achievement Badge */
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg,
+    var(--pixel-gold) 0%,
+    var(--kawaii-yellow) 100%);
+  border: 3px solid var(--kawaii-dark);
+  border-radius: var(--radius);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  box-shadow: var(--shadow-pixel);
+}
+
+/* Level indicator */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg,
+    var(--kawaii-purple) 0%,
+    var(--kawaii-pink) 100%);
+  border: 3px solid var(--kawaii-dark);
+  border-radius: var(--radius-full);
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: white;
+  box-shadow: var(--shadow-pixel);
+}
+
+/* ============================================
+   🌸 Decorative Elements
+   ============================================ */
+
+/* Kawaii divider */
+.kawaii-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.kawaii-divider::before,
+.kawaii-divider::after {
+  content: '';
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--kawaii-pink),
+    var(--kawaii-purple),
+    var(--kawaii-mint),
+    transparent);
+  border-radius: var(--radius-full);
+}
+
+/* Sparkle decoration */
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: '';
+  position: absolute;
+  background: var(--kawaii-yellow);
+}
+
+.sparkle::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: var(--radius-full);
+}
+
+.sparkle::after {
+  width: 4px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   📱 Responsive Kawaii Grid
+   ============================================ */
+.kawaii-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ============================================
+   🎪 Feature Card
+   ============================================ */
+.feature-card {
+  background: linear-gradient(135deg,
+    oklch(1 0 0) 0%,
+    var(--kawaii-pink-light) 100%);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  border: 3px solid var(--kawaii-pink);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow:
+    0 12px 40px oklch(0.78 0.12 350 / 0.3),
+    0 0 0 4px var(--kawaii-purple);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+    oklch(1 0 0 / 0.8) 0%,
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   🎵 Sound/Audio UI
+   ============================================ */
+.audio-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+}
+
+.audio-wave span {
+  width: 4px;
+  background: var(--kawaii-pink);
+  border-radius: var(--radius-full);
+  animation: audio-bounce 0.8s ease-in-out infinite;
+}
+
+.audio-wave span:nth-child(1) { animation-delay: 0s; height: 8px; }
+.audio-wave span:nth-child(2) { animation-delay: 0.1s; height: 16px; }
+.audio-wave span:nth-child(3) { animation-delay: 0.2s; height: 12px; }
+.audio-wave span:nth-child(4) { animation-delay: 0.3s; height: 20px; }
+.audio-wave span:nth-child(5) { animation-delay: 0.4s; height: 8px; }
+
+@keyframes audio-bounce {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+
+/* ============================================
+   🕹️ Ruffle Flash Player Styles
+   ============================================ */
+#ruffle-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+ruffle-player,
+ruffle-embed,
+ruffle-object {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+ruffle-player canvas,
+ruffle-embed canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+.ruffle-player-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--kawaii-dark);
+  border-radius: var(--radius-lg);
+}
+
+.ruffle-player-container {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 4px solid var(--kawaii-dark);
+  box-shadow:
+    var(--shadow-pixel),
+    0 0 30px oklch(0.78 0.12 350 / 0.3);
+}
+
+.ruffle-player-container:fullscreen,
+.ruffle-player-container:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  background: var(--kawaii-dark) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  border: none;
+}
+
+/* Mobile touch optimization */
+@media (hover: none) and (pointer: coarse) {
+  .ruffle-player-container,
+  .ruffle-player-wrapper,
+  #ruffle-container {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  ruffle-player,
+  ruffle-embed {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+:fullscreen,
+:-webkit-full-screen {
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 768px) {
+  .ruffle-player-container {
+    min-height: 280px;
+  }
+}
+
+/* ============================================
+   🎭 Tab/Category Selector - Game Style
+   ============================================ */
+.kawaii-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: linear-gradient(135deg,
+    var(--kawaii-purple-light) 0%,
+    var(--kawaii-pink-light) 100%);
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--kawaii-pink);
+}
+
+.kawaii-tab {
+  font-family: var(--font-kawaii);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--kawaii-dark);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.kawaii-tab:hover {
+  background: oklch(1 0 0 / 0.5);
+  transform: scale(1.05);
+}
+
+.kawaii-tab[data-state="active"] {
+  background: linear-gradient(135deg,
+    var(--kawaii-pink) 0%,
+    var(--kawaii-coral) 100%);
+  color: white;
+  border-color: var(--kawaii-pink-dark);
+  box-shadow: 0 3px 0 var(--kawaii-pink-dark);
+}
+
+/* ============================================
+   🎨 Color Picker - Kawaii Style
+   ============================================ */
+.kawaii-color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: oklch(0.98 0.02 280);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--kawaii-purple);
+}
+
+.kawaii-color-swatch {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  border: 3px solid white;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.1);
+}
+
+.kawaii-color-swatch:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.2);
+}
+
+.kawaii-color-swatch[data-selected="true"] {
+  border-color: var(--kawaii-dark);
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 3px var(--kawaii-yellow),
+    0 4px 12px oklch(0 0 0 / 0.2);
+}
+
+/* ============================================
+   ✨ Loading States
+   ============================================ */
+.kawaii-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.kawaii-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--kawaii-pink-light);
+  border-top-color: var(--kawaii-pink);
+  border-radius: 50%;
+  animation: spin-slow 1s linear infinite;
+}
+
+.kawaii-loading-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.kawaii-loading-dots span {
+  width: 12px;
+  height: 12px;
+  background: var(--kawaii-pink);
+  border-radius: 50%;
+  animation: bounce-soft 0.6s ease-in-out infinite;
+}
+
+.kawaii-loading-dots span:nth-child(2) {
+  animation-delay: 0.1s;
+  background: var(--kawaii-purple);
+}
+
+.kawaii-loading-dots span:nth-child(3) {
+  animation-delay: 0.2s;
+  background: var(--kawaii-mint);
+}
+
+/* ============================================
+   📦 Feature Selector Grid
+   ============================================ */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  background: oklch(0.98 0.01 350);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--kawaii-pink-light);
+}
+
+.feature-option {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: var(--radius);
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.feature-option:hover {
+  border-color: var(--kawaii-purple);
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px oklch(0.75 0.12 300 / 0.3);
+}
+
+.feature-option[data-selected="true"] {
+  border-color: var(--kawaii-pink);
+  background: var(--kawaii-pink-light);
+  box-shadow:
+    0 0 0 3px var(--kawaii-yellow),
+    0 4px 12px oklch(0.78 0.12 350 / 0.3);
+}
+
+/* ============================================
+   🎪 Social Share Buttons
+   ============================================ */
+.social-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--kawaii-dark);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 3px 0 var(--kawaii-dark);
+}
+
+.social-btn:hover {
+  transform: translateY(-4px) rotate(-5deg);
+  box-shadow: 0 6px 0 var(--kawaii-dark);
+}
+
+.social-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--kawaii-dark);
+}
+
+/* ============================================
+   🌈 Gradient Backgrounds
+   ============================================ */
+.bg-kawaii-gradient {
+  background: linear-gradient(135deg,
+    var(--kawaii-pink-light) 0%,
+    var(--kawaii-purple-light) 50%,
+    var(--kawaii-mint-light) 100%);
+}
+
+.bg-game-gradient {
+  background:
+    linear-gradient(180deg,
+      oklch(0.3 0.08 280) 0%,
+      oklch(0.2 0.05 280) 100%);
+}
+
+.bg-sunset-gradient {
+  background: linear-gradient(135deg,
+    var(--kawaii-coral) 0%,
+    var(--kawaii-pink) 50%,
+    var(--kawaii-purple) 100%);
+}
+
+/* ============================================
+   🎯 Interactive Hover Effects
+   ============================================ */
+.hover-bounce {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-bounce:hover {
+  transform: translateY(-4px);
+}
+
+.hover-grow {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.hover-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+/* ============================================
+   🎉 Celebration Effects
+   ============================================ */
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   📱 Responsive Adjustments
+   ============================================ */
+@media (max-width: 640px) {
+  .pixel-title {
+    font-size: 1rem;
+    text-shadow:
+      2px 2px 0 var(--kawaii-pink),
+      4px 4px 0 var(--kawaii-purple);
+  }
+
+  .kawaii-card {
+    border-radius: var(--radius-lg);
+    border-width: 2px;
+  }
+
+  .kawaii-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .pixel-btn {
+    font-size: 0.6rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+/* ============================================
+   🌙 Dark Mode Support (Optional)
+   ============================================ */
+.dark {
+  --background: var(--kawaii-dark);
+  --foreground: oklch(0.95 0.02 350);
+  --card: var(--kawaii-dark-purple);
+  --card-foreground: oklch(0.95 0.02 350);
+  --border: oklch(0.35 0.05 280);
+  --input: oklch(0.3 0.05 280);
 }

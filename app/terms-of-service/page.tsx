@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Service - Square Face Generator",
   description: "Terms of Service for Square Face Generator. Read the terms and conditions for using our free square face avatar generator.",
   keywords: ["terms of service", "square face generator terms", "avatar generator terms", "user agreement"],
+  canonical: "https://squarefacegenerator.run/terms-of-service",
 }
 
 export default function TermsOfServicePage() {
