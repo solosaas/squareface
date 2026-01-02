@@ -4,7 +4,8 @@ import { useRef, useState, useEffect, useCallback } from "react"
 import { RuffleFlashPlayer } from "./ruffle-flash-player"
 import { AvatarCarousel } from "./avatar-carousel"
 import { FloatingStar, KawaiiHeart, Sparkle, PixelStar, KawaiiDivider, CuteBadge } from "./kawaii-decorations"
-import { Maximize2, Minimize2, RotateCcw, Info, Gamepad2, Sparkles, Zap, Smartphone, Shield, RefreshCw } from "lucide-react"
+import { Maximize2, Minimize2, RotateCcw, Info, Gamepad2, Sparkles, Zap, Smartphone, Shield, RefreshCw, Share2 } from "lucide-react"
+import { FlashShareSection } from "./flash-share-section"
 
 interface RuffleFlashGeneratorProps {
   swfUrl?: string
@@ -99,7 +100,7 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
         </div>
 
         {/* Main Game Card */}
-        <div className="kawaii-card p-4 md:p-6 relative">
+        <div className="kawaii-card relative overflow-hidden">
           {/* Control Buttons - Above Player */}
           {!isFullscreen && (
             <div className="flex justify-end gap-2 mb-3 relative">
@@ -161,9 +162,7 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
             className="ruffle-player-container relative"
             style={{
               width: "100%",
-              height: "75vh",
-              minHeight: "400px",
-              maxHeight: "800px",
+              aspectRatio: "550 / 400",
             }}
           >
             {/* Fullscreen Exit Button */}
@@ -208,6 +207,9 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
         <div className="mt-6 -mx-4">
           <AvatarCarousel title="✨ Get Inspired by Community Creations ✨" />
         </div>
+
+        {/* Share Section */}
+        <FlashShareSection />
 
         <KawaiiDivider icon="⭐" />
 

@@ -23,6 +23,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "🖼️ Avatar Gallery - Get Inspired! ✨",
+    description: "Browse hundreds of cute pixel avatars created by our community! 💡 Find your perfect Discord PFP style! 🎨",
+    images: ["/avatars/competitor-8.png"],
+  },
 }
 
 const avatarCategories = [

@@ -21,16 +21,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "🎮 The Classic Icon Generator is BACK! ✨ Create Your Avatar Now",
+    description: "Remember 2013? Create cute pixel avatars in SECONDS! 🎨 Free, no signup, instant download. Your perfect Discord PFP awaits! 🚀",
+    images: ["/avatars/competitor-8.png"],
+  },
 }
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-green-50">
       {/* Flash Generator Section - AvatarCarousel is embedded inside */}
-      <RuffleFlashGenerator swfUrl="/square-face.swf" />
+      <section id="generator">
+        <RuffleFlashGenerator swfUrl="/square-face.swf" />
+      </section>
 
       {/* Nostalgic Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section id="about" className="max-w-4xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 to-green-600 bg-clip-text text-transparent">
             Square Face Generator - Free Icon Maker
@@ -84,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* How to Create Section */}
-      <section className="bg-gradient-to-r from-amber-100 via-pink-100 to-green-100 py-16">
+      <section id="steps" className="bg-gradient-to-r from-amber-100 via-pink-100 to-green-100 py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
             Create Your Pixel Avatar in 3 Steps
@@ -119,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* Perfect For Section */}
-      <section className="py-16">
+      <section id="platforms" className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
             Perfect For Every Platform
@@ -347,7 +355,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section - Expanded with 20+ Questions */}
-      <section className="py-16">
+      <section id="faq" className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
             Frequently Asked Questions

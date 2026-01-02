@@ -21,15 +21,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "🎨 200+ Options! Create Your Perfect Pixel Avatar ✨",
+    description: "Modern HTML5 Canvas version! 🚀 200+ customization options, instant preview, free download. Works on mobile too! 📱",
+    images: ["/avatars/competitor-8.png"],
+  },
 }
 
 export default function ModernPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-blue-50">
-      <SquareFaceGenerator />
+      {/* Generator Section */}
+      <section id="generator">
+        <SquareFaceGenerator />
+      </section>
 
       {/* About Section */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section id="about" className="max-w-4xl mx-auto px-6 py-16">
         <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent">
           About the Canvas Version
         </h2>
@@ -47,7 +56,7 @@ export default function ModernPage() {
       </section>
 
       {/* How to Use Section */}
-      <section className="bg-white/70 backdrop-blur-sm py-16">
+      <section id="how-to" className="bg-white/70 backdrop-blur-sm py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
             How to Create Your Avatar
@@ -234,7 +243,7 @@ export default function ModernPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
+      <section id="features" className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-800">
             Avatar Maker Features
@@ -357,7 +366,7 @@ export default function ModernPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 pb-24">
+      <section id="faq" className="py-16 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
             Frequently Asked Questions

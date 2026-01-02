@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { Fredoka, Nunito, Press_Start_2P } from "next/font/google"
 import { FloatingDecorations } from "@/components/kawaii-decorations"
+import { Navigation } from "@/components/navigation"
 import "./globals.css"
 
 // ============================================
@@ -77,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Square Face Generator - Flash Museum Classic is Back!",
-    description: "Remember making cute pixel avatars in 2013? The original Square Face Icon Generator by h071019 is back online. Free Picrew alternative for Discord & Twitter PFP!",
+    title: "🎮 Remember 2013? The Icon Generator is BACK! ✨",
+    description: "Create YOUR cute pixel avatar in seconds! 🎨 Free, no signup, instant download. Perfect for Discord & TikTok PFP! Let's gooo 🚀",
     images: ["/avatars/competitor-8.png"],
   },
   icons: {
@@ -289,6 +290,7 @@ export default function RootLayout({
           showSakura={true}
           sakuraCount={20}
         />
+        <Navigation />
         <div className="relative z-10">
           {children}
         </div>

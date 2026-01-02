@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: "https://squarefacegenerator.run/vs-picrew",
     siteName: "Square Face Generator",
     type: "article",
+    images: [
+      {
+        url: "/avatars/competitor-8.png",
+        width: 256,
+        height: 256,
+        alt: "Square Face Generator vs Picrew Comparison",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "🆚 Better Than Picrew? Find Out! 🤔",
+    description: "Why pay when you can get it FREE? 💰 No signup, no limits, instant download! The perfect Picrew alternative for Discord PFP! ✨",
+    images: ["/avatars/competitor-8.png"],
   },
 }
 

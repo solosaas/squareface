@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: "https://squarefacegenerator.run/about",
     siteName: "Square Face Generator",
     type: "website",
+    images: [
+      {
+        url: "/avatars/competitor-8.png",
+        width: 256,
+        height: 256,
+        alt: "Square Face Generator - Our Story",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "📖 The Story Behind the Icon Generator ✨",
+    description: "How we saved the classic 2013 Flash avatar maker from disappearing! 💾 Preserving internet nostalgia one pixel at a time! 🎮",
+    images: ["/avatars/competitor-8.png"],
   },
 }
 
