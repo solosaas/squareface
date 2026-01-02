@@ -42,10 +42,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://squarefacegenerator.run"),
-  title: "Square Face Generator - Free Icon Maker | Flash Museum Classic",
-  description:
-    "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013. Free Picrew alternative for Discord, Twitter, TikTok PFP. No download needed.",
-  keywords: "square face generator, square face icon generator, flashmuseum, icon generator, square face generator free, square face generator picrew, square face generator online, square face icon generator picrew, square face generator anime, square face generator flash museum, square face generator aesthetic, square face generator pfp, h071019, pixel avatar maker, picrew alternative",
+  title: "Square Face Generator - Free Icon Maker | Flash Museum",
+  description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
+  keywords: "square face generator,icon generator,flashmuseum,pixel avatar maker,picrew alternative,h071019",
   authors: [{ name: "Square Face Generator" }],
   creator: "Square Face Generator",
   publisher: "Square Face Generator",
@@ -64,23 +63,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://squarefacegenerator.run",
-    title: "Square Face Generator - Free Icon Maker | Flash Museum Classic",
-    description: "The original Square Face Icon Generator from Flash Museum is back! Create cute pixel avatars like the 2013 golden era. Free Picrew alternative - perfect for Discord, Twitter, TikTok PFP.",
+    title: "Square Face Generator - Free Icon Maker | Flash Museum",
+    description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
     siteName: "Square Face Generator",
     images: [
       {
-        url: "https://squarefacegenerator.run/avatars/competitor-8.png",
-        width: 256,
-        height: 256,
+        url: "https://squarefacegenerator.run/twitter-card.png",
+        width: 1000,
+        height: 630,
         alt: "Square Face Generator - Classic Flash Museum Icon Maker",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@squarefacegen",
     title: "🎮 Remember 2013? The Icon Generator is BACK! ✨",
     description: "Create YOUR cute pixel avatar in seconds! 🎨 Free, no signup, instant download. Perfect for Discord & TikTok PFP! Let's gooo 🚀",
-    images: ["https://squarefacegenerator.run/avatars/competitor-8.png"],
+    images: ["https://squarefacegenerator.run/twitter-card.png"],
   },
   icons: {
     icon: [
@@ -114,7 +114,7 @@ export default function RootLayout({
         "url": "https://squarefacegenerator.run/",
         "name": "Square Face Generator",
         "alternateName": "Square Face Icon Generator",
-        "description": "The original Square Face Icon Generator from Flash Museum, preserved for modern browsers. Create cute pixel avatars like the 2013 golden era.",
+        "description": "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
         "inLanguage": "en",
         "potentialAction": {
           "@type": "SearchAction",
@@ -129,11 +129,11 @@ export default function RootLayout({
         "@type": "WebPage",
         "@id": "https://squarefacegenerator.run/#webpage",
         "url": "https://squarefacegenerator.run/",
-        "name": "Square Face Generator - Free Icon Maker Online | Flash Museum Nostalgia",
+        "name": "Square Face Generator - Free Icon Maker | Flash Museum",
         "isPartOf": {
           "@id": "https://squarefacegenerator.run/#website"
         },
-        "description": "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013.",
+        "description": "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
         "inLanguage": "en",
         "breadcrumb": {
           "@id": "https://squarefacegenerator.run/#breadcrumb"
@@ -146,7 +146,7 @@ export default function RootLayout({
         "alternateName": ["Square Face Icon Generator", "Square Face Maker", "Flash Museum Square Face", "h071019 Square Face"],
         "operatingSystem": "Web",
         "applicationCategory": "DesignApplication",
-        "description": "The original Square Face Icon Generator from Flash Museum by h071019. Create cute 256x256 pixel avatars with 12 customization categories. Free Picrew alternative for Discord, Twitter, TikTok PFP. Relive the 2013 internet nostalgia.",
+        "description": "The original Flash Museum icon Maker by h071019. Create cute 256x256 pixel avatars with 12 categories. Free Picrew alternative for Discord, Twitter, TikTok PFP.",
         "url": "https://squarefacegenerator.run/",
         "offers": {
           "@type": "Offer",
