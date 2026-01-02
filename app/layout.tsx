@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     siteName: "Square Face Generator",
     images: [
       {
-        url: "/avatars/competitor-8.png",
+        url: "https://squarefacegenerator.run/avatars/competitor-8.png",
         width: 256,
         height: 256,
         alt: "Square Face Generator - Classic Flash Museum Icon Maker",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "🎮 Remember 2013? The Icon Generator is BACK! ✨",
     description: "Create YOUR cute pixel avatar in seconds! 🎨 Free, no signup, instant download. Perfect for Discord & TikTok PFP! Let's gooo 🚀",
-    images: ["/avatars/competitor-8.png"],
+    images: ["https://squarefacegenerator.run/avatars/competitor-8.png"],
   },
   icons: {
     icon: [

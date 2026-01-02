@@ -267,8 +267,13 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Spacer for fixed navigation */}
-      <div className="h-20 lg:h-24" />
+      {/* Spacer for fixed navigation - with matching background to eliminate gap */}
+      <div
+        className="nav-spacer w-full"
+        style={{
+          background: 'linear-gradient(180deg, oklch(0.98 0.02 350 / 0.95) 0%, oklch(0.95 0.04 350 / 0.9) 100%)',
+        }}
+      />
 
       <style jsx global>{`
         /* ============================================
@@ -511,6 +516,16 @@ export function Navigation() {
         @media (max-width: 1024px) {
           .kawaii-nav {
             padding: 0.5rem 0;
+          }
+        }
+
+        /* Nav spacer height - matches fixed nav height */
+        .nav-spacer {
+          height: 80px;
+        }
+        @media (min-width: 1024px) {
+          .nav-spacer {
+            height: 96px;
           }
         }
       `}</style>

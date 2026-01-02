@@ -45,11 +45,11 @@ export function RuffleFlashPlayer({
           autoplay: "on",
           unmuteOverlay: "hidden",
           backgroundColor: "#FFF0F5",
-          letterbox: "on",
+          letterbox: "off",
           warnOnUnsupportedContent: false,
           contextMenu: "off",
           quality: "high",
-          scale: "showAll",
+          scale: "exactFit",
         })
 
         setIsLoading(false)
@@ -70,11 +70,11 @@ export function RuffleFlashPlayer({
       autoplay: "on",
       unmuteOverlay: "hidden",
       backgroundColor: "#FFF0F5",
-      letterbox: "on",
+      letterbox: "off",
       warnOnUnsupportedContent: false,
       contextMenu: "off",
       quality: "high",
-      scale: "showAll",
+      scale: "exactFit",
       allowFullscreen: true,
     }
     setRuffleLoaded(true)
@@ -189,15 +189,19 @@ export function RuffleFlashPlayer({
             to { transform: rotate(360deg); }
           }
 
-          #ruffle-container ruffle-player {
+          #ruffle-container ruffle-player,
+          #ruffle-container ruffle-player > *,
+          #ruffle-container ruffle-player canvas {
             width: 100% !important;
             height: 100% !important;
+            max-width: none !important;
+            max-height: none !important;
           }
 
           #ruffle-container canvas {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: fill;
           }
         `}</style>
       </div>

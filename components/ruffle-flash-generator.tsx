@@ -186,20 +186,25 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
 
           {/* Game Tips */}
           {!isFullscreen && (
-            <div className="mt-4 text-center">
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
-                style={{
-                  background: 'var(--kawaii-yellow-light)',
-                  border: '2px dashed var(--kawaii-yellow)',
-                }}
-              >
-                <span className="text-lg">💡</span>
-                <span className="text-sm font-semibold" style={{ color: 'var(--kawaii-dark)' }}>
-                  Tip: Use fullscreen for the best experience!
-                </span>
+            <>
+              <div className="mt-4 text-center">
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+                  style={{
+                    background: 'var(--kawaii-yellow-light)',
+                    border: '2px dashed var(--kawaii-yellow)',
+                  }}
+                >
+                  <span className="text-lg">💡</span>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--kawaii-dark)' }}>
+                    Tip: Use fullscreen for the best experience!
+                  </span>
+                </div>
               </div>
-            </div>
+
+              {/* Share Section */}
+              <FlashShareSection />
+            </>
           )}
         </div>
 
@@ -207,9 +212,6 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
         <div className="mt-6 -mx-4">
           <AvatarCarousel title="✨ Get Inspired by Community Creations ✨" />
         </div>
-
-        {/* Share Section */}
-        <FlashShareSection />
 
         <KawaiiDivider icon="⭐" />
 

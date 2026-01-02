@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: "Square Face Generator",
     images: [
       {
-        url: "/avatars/competitor-8.png",
+        url: "https://squarefacegenerator.run/avatars/competitor-8.png",
         width: 256,
         height: 256,
         alt: "Square Face Generator - Flash Museum Nostalgia",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "🎮 The Classic Icon Generator is BACK! ✨ Create Your Avatar Now",
     description: "Remember 2013? Create cute pixel avatars in SECONDS! 🎨 Free, no signup, instant download. Your perfect Discord PFP awaits! 🚀",
-    images: ["/avatars/competitor-8.png"],
+    images: ["https://squarefacegenerator.run/avatars/competitor-8.png"],
   },
 }
 
