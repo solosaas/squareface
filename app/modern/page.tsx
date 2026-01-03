@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🎨 200+ Options! Create Your Perfect Pixel Avatar ✨",
-    description: "Modern HTML5 Canvas version! 🚀 200+ customization options, instant preview, free download. Works on mobile too! 📱",
+    title: "200+ Options! Create Your Perfect Pixel Avatar",
+    description: "Modern HTML5 Canvas version! 200+ customization options, instant preview, free download. Works on mobile too!",
     images: ["/avatars/competitor-8.png"],
   },
 }

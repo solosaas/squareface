@@ -6,13 +6,15 @@ import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Square Face Generator - Free Icon Maker | Flash Museum",
-  canonical: "https://squarefacegenerator.run/",
-  description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
+  description: "Square Face Generator by h071019! Create adorable pixel avatars instantly. 200+ options, no signup. Perfect for Discord PFP & social media!",
   keywords: "square face generator,icon generator,flashmuseum,pixel avatar maker,picrew alternative,h071019",
+  alternates: {
+    canonical: "https://squarefacegenerator.run/"
+  },
   openGraph: {
     type: "website",
     title: "Square Face Generator - Free Icon Maker | Flash Museum",
-    description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
+    description: "Square Face Generator by h071019! Create adorable pixel avatars instantly. 200+ options, no signup. Perfect for Discord PFP & social media!",
     url: "https://squarefacegenerator.run/",
     siteName: "Square Face Generator",
     images: [
@@ -27,8 +29,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@squarefacegen",
-    title: "🎮 The Classic Icon Generator is BACK! ✨ Create Your Avatar Now",
-    description: "Remember 2013? Create cute pixel avatars in SECONDS! 🎨 Free, no signup, instant download. Your perfect Discord PFP awaits! 🚀",
+    title: "The Classic Icon Generator is BACK! Create Your Avatar Now",
+    description: "Remember 2013? Create cute pixel avatars in SECONDS! Free, no signup, instant download. Your perfect Discord PFP awaits!",
     images: ["https://squarefacegenerator.run/twitter-card.png"],
   },
 }
@@ -111,7 +113,7 @@ export default function Home() {
         {/* Nostalgia Memory Lane */}
         <div className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg mb-12">
           <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
-            ✨ A Trip Down Memory Lane ✨
+            A Trip Down Memory Lane
           </h3>
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="leading-relaxed mb-4">
@@ -248,13 +250,13 @@ export default function Home() {
       <section className="py-16 bg-gradient-to-br from-amber-50/50 to-green-50/50">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
-            💡 Pro Tips & Tricks for Square Face Generator
+            Pro Tips & Tricks for Square Face Generator
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-amber-600">
-                <span>🎨</span> Color Coordination Tips
+                Color Coordination Tips
               </h3>
               <p className="text-gray-700 text-sm">
                 Use the color picker to match your brand colors or create aesthetic palettes. Try matching hair color with accessories for a cohesive look. Popular combinations include pastel pink + blue, mint green + lavender, and the classic black + white aesthetic.
@@ -263,7 +265,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-pink-600">
-                <span>👀</span> Expression Combinations
+                Expression Combinations
               </h3>
               <p className="text-gray-700 text-sm">
                 Eye and mouth combinations can drastically change your avatar's mood! Try a wink with a smile for a playful look, sleepy eyes with a small smile for a cute aesthetic, or surprised eyes with an open mouth for excitement.
@@ -272,7 +274,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-green-600">
-                <span>⚡</span> Layer Like a Pro
+                Layer Like a Pro
               </h3>
               <p className="text-gray-700 text-sm">
                 Start with larger elements like face shape and hairstyle before adding small details like glasses or blush. This layering approach ensures balanced proportions and prevents elements from looking crowded.
@@ -281,7 +283,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-blue-600">
-                <span>🎲</span> Use the Random Button
+                Use the Random Button
               </h3>
               <p className="text-gray-700 text-sm">
                 Feeling stuck? The random generator is your best friend! It creates unique combinations you might not think of yourself. Use it as inspiration, then fine-tune the colors and details to make it yours.
@@ -290,7 +292,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-purple-600">
-                <span>🌟</span> Style Guide
+                Style Guide
               </h3>
               <p className="text-gray-700 text-sm">
                 Explore different aesthetics! Go kawaii with pastel colors and cute expressions, try cool vibes with sunglasses and neutral tones, or create an aesthetic avatar with matching accessories and outfits.
@@ -299,7 +301,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-rose-600">
-                <span>💾</span> Best Export Practices
+                Best Export Practices
               </h3>
               <p className="text-gray-700 text-sm">
                 Your 256×256 PNG exports have transparent backgrounds, making them perfect for overlays. For Discord, use the full square — it displays beautifully. For circular profile frames, position your avatar's face in the center before saving.
@@ -318,42 +320,42 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-amber-600">✅ 100% Free Forever</h3>
+              <h3 className="text-lg font-bold mb-3 text-amber-600">100% Free Forever</h3>
               <p className="text-gray-700 text-sm">
                 No hidden costs, no premium tiers, no limitations. Enjoy the full Square Face Generator experience without spending a dime. Create unlimited avatars, download instantly, use anywhere.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-pink-600">✅ No Registration Required</h3>
+              <h3 className="text-lg font-bold mb-3 text-pink-600">No Registration Required</h3>
               <p className="text-gray-700 text-sm">
                 We value your privacy. No account needed, no personal information collected. Create, customize, and download your square face avatars instantly without any sign-up process.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-green-600">✅ Instant High-Quality Downloads</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-600">Instant High-Quality Downloads</h3>
               <p className="text-gray-700 text-sm">
                 Get your creations as crisp 256×256 pixel PNG files with transparent backgrounds. Perfect for Discord, Twitter, TikTok, Instagram, YouTube, gaming platforms, and more.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-blue-600">✅ Real-Time Preview</h3>
+              <h3 className="text-lg font-bold mb-3 text-blue-600">Real-Time Preview</h3>
               <p className="text-gray-700 text-sm">
                 See your changes instantly as you make them. Our square face icon generator updates in real-time, so you always know exactly what your avatar will look like.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-purple-600">✅ Random Generator Feature</h3>
+              <h3 className="text-lg font-bold mb-3 text-purple-600">Random Generator Feature</h3>
               <p className="text-gray-700 text-sm">
                 Feeling uninspired? Hit the random button for instant inspiration! Discover new combinations and let the square face generator surprise you with unique creations.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-rose-50 to-rose-100 rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold mb-3 text-rose-600">✅ Privacy Protected</h3>
+              <h3 className="text-lg font-bold mb-3 text-rose-600">Privacy Protected</h3>
               <p className="text-gray-700 text-sm">
                 All avatar creation happens locally in your browser. Your designs are never uploaded to our servers. Your square face generator activity stays completely private.
               </p>

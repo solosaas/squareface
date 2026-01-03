@@ -79,8 +79,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@squarefacegen",
-    title: "🎮 Remember 2013? The Icon Generator is BACK! ✨",
-    description: "Create YOUR cute pixel avatar in seconds! 🎨 Free, no signup, instant download. Perfect for Discord & TikTok PFP! Let's gooo 🚀",
+    title: "Remember 2013? The Icon Generator is BACK!",
+    description: "Create YOUR cute pixel avatar in seconds! Free, no signup, instant download. Perfect for Discord & TikTok PFP!",
     images: ["https://squarefacegenerator.run/twitter-card.png"],
   },
   icons: {

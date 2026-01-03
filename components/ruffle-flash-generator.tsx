@@ -161,13 +161,13 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
 
         {/* Avatar Carousel - Right after the generator for inspiration */}
         <div className="mt-6 -mx-4">
-          <AvatarCarousel title="✨ Get Inspired by Community Creations ✨" />
+          <AvatarCarousel title="Get Inspired by Community Creations" />
         </div>
 
         <KawaiiDivider icon="⭐" />
 
         <h2 className="text-3xl font-bold text-center mb-6 mt-8 kawaii-title">
-          🎯 Classic Flash Highlights
+          Classic Flash Highlights
         </h2>
 
         {/* Feature Cards - Game Style */}
@@ -238,7 +238,7 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
         {/* Why Choose Section */}
         <div className="mt-12">
           <h2 className="text-3xl font-bold text-center mb-8 kawaii-title">
-            ✨ Why Choose Square Face Generator?
+            Why Choose Square Face Generator?
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -277,7 +277,7 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
         {/* Comparison Section */}
         <div className="mt-12">
           <h2 className="text-3xl font-bold text-center mb-8 kawaii-title">
-            🎮 Flash vs Modern Version
+            Flash vs Modern Version
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">

@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "📖 The Story Behind the Icon Generator ✨",
-    description: "How we saved the classic 2013 Flash avatar maker from disappearing! 💾 Preserving internet nostalgia one pixel at a time! 🎮",
+    title: "The Story Behind the Icon Generator",
+    description: "How we saved the classic 2013 Flash avatar maker from disappearing! Preserving internet nostalgia one pixel at a time!",
     images: ["/avatars/competitor-8.png"],
   },
 }

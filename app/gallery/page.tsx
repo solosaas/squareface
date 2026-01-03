@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🖼️ Avatar Gallery - Get Inspired! ✨",
-    description: "Browse hundreds of cute pixel avatars created by our community! 💡 Find your perfect Discord PFP style! 🎨",
+    title: "Avatar Gallery - Get Inspired!",
+    description: "Browse hundreds of cute pixel avatars created by our community! Find your perfect Discord PFP style!",
     images: ["/avatars/competitor-8.png"],
   },
 }
@@ -126,7 +126,7 @@ export default function GalleryPage() {
           <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">Avatar Style Guide</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4 text-pink-600">🎨 Color Combinations</h3>
+              <h3 className="font-bold text-lg mb-4 text-pink-600">Color Combinations</h3>
               <ul className="space-y-2 text-gray-700">
                 <li>• <strong>Pastel Dream:</strong> Pink + Mint + Lavender</li>
                 <li>• <strong>Classic Cool:</strong> Black + White + Gray</li>
@@ -136,7 +136,7 @@ export default function GalleryPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-4 text-pink-600">💡 Pro Tips</h3>
+              <h3 className="font-bold text-lg mb-4 text-pink-600">Pro Tips</h3>
               <ul className="space-y-2 text-gray-700">
                 <li>• Match hair color with accessories for cohesion</li>
                 <li>• Use contrasting eye colors to make them pop</li>
@@ -153,7 +153,7 @@ export default function GalleryPage() {
           <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">Platform-Specific Tips</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-xl mb-3">💬 Discord</h3>
+              <h3 className="font-bold text-xl mb-3">Discord</h3>
               <p className="opacity-90">
                 Square avatars display perfectly! Position your face in the center since Discord uses circular crops.
                 The 256×256 size is ideal for both server and profile avatars.
@@ -167,14 +167,14 @@ export default function GalleryPage() {
               </p>
             </div>
             <div className="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-xl mb-3">📱 TikTok</h3>
+              <h3 className="font-bold text-xl mb-3">TikTok</h3>
               <p className="opacity-90">
                 Go bold with colors and expressions! TikTok profiles are circular, so keep important features
                 centered. Cute, expressive avatars perform well.
               </p>
             </div>
             <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-xl mb-3">▶️ YouTube</h3>
+              <h3 className="font-bold text-xl mb-3">YouTube</h3>
               <p className="opacity-90">
                 Use consistent avatars across your channel for brand recognition. The square format works great
                 for both channel icons and thumbnails.
