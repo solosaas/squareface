@@ -3,14 +3,14 @@ import { RuffleFlashGenerator } from "@/components/ruffle-flash-generator"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Square Face Generator - Free Icon Maker | Flash Museum Classic",
+  title: "Square Face Generator - Free Icon Maker | Flash Museum",
   canonical: "https://squarefacegenerator.run/",
-  description: "Remember the Square Face Icon Generator from Flash Museum? The original h071019 classic is back! Create cute pixel avatars just like 2013. Free Picrew alternative for Discord, Twitter, TikTok PFP.",
-  keywords: "square face generator, square face icon generator, flashmuseum, icon generator, square face generator free, square face generator picrew, square face generator online, square face icon generator picrew, square face generator anime, square face generator flash museum, square face generator aesthetic, square face generator pfp, h071019, pixel avatar maker, picrew alternative",
+  description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
+  keywords: "square face generator,icon generator,flashmuseum,pixel avatar maker,picrew alternative,h071019",
   openGraph: {
     type: "website",
-    title: "Square Face Generator - Flash Museum Classic is Back!",
-    description: "Remember making cute pixel avatars in 2013? The original Square Face Icon Generator by h071019 is back online. Free Picrew alternative for Discord & Twitter PFP!",
+    title: "Square Face Generator - Free Icon Maker | Flash Museum",
+    description: "The original Flash Museum icon maker by h071019. Create cute pixel avatars free. Best Picrew alternative for Discord PFP.",
     url: "https://squarefacegenerator.run/",
     siteName: "Square Face Generator",
     images: [
