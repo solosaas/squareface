@@ -69,9 +69,9 @@ export function FlashShareSection() {
       {/* Header */}
       <div className="flex items-center justify-center gap-2 mb-4">
         <Share2 className="w-5 h-5" style={{ color: 'var(--kawaii-purple)' }} />
-        <h3 className="text-lg font-bold" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
+        <p className="text-lg font-bold" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
           Share Your Creation!
-        </h3>
+        </p>
       </div>
 
       <p className="text-sm mb-4 text-center" style={{ color: 'var(--kawaii-dark)' }}>

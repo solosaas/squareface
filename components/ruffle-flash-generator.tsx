@@ -3,8 +3,8 @@
 import { useRef, useState, useEffect, useCallback } from "react"
 import { RuffleFlashPlayer } from "./ruffle-flash-player"
 import { AvatarCarousel } from "./avatar-carousel"
-import { FloatingStar, KawaiiHeart, Sparkle, PixelStar, KawaiiDivider, CuteBadge } from "./kawaii-decorations"
-import { Maximize2, Minimize2, RotateCcw, Info, Gamepad2, Sparkles, Zap, Smartphone, Shield, RefreshCw, Share2 } from "lucide-react"
+import { Sparkle, KawaiiDivider } from "./kawaii-decorations"
+import { Maximize2, Minimize2, RotateCcw, Info, Sparkles, Zap } from "lucide-react"
 import { FlashShareSection } from "./flash-share-section"
 
 interface RuffleFlashGeneratorProps {
@@ -49,58 +49,9 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
   }
 
   return (
-    <section className="py-8 px-4 relative">
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 opacity-60 hidden md:block">
-        <FloatingStar size={32} color="var(--kawaii-yellow)" delay={0} />
-      </div>
-      <div className="absolute top-20 right-20 opacity-60 hidden md:block">
-        <FloatingStar size={24} color="var(--kawaii-pink)" delay={0.5} />
-      </div>
-      <div className="absolute bottom-40 left-20 opacity-40 hidden md:block">
-        <PixelStar size={28} />
-      </div>
-
-      <div className="max-w-4xl mx-auto relative">
-        {/* Header with Pixel Game Style */}
-        <div className="text-center mb-8">
-          {/* Game-style title bar */}
-          <div className="inline-flex items-center gap-3 mb-4">
-            <span className="text-3xl">🎮</span>
-            <div className="flex gap-1">
-              <KawaiiHeart size={16} color="var(--kawaii-pink)" />
-              <KawaiiHeart size={16} color="var(--kawaii-pink)" />
-              <KawaiiHeart size={16} color="var(--kawaii-pink)" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 pixel-title">
-            Square Face Generator
-          </h1>
-
-          <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
-            <span className="rainbow-text font-bold">Create cute avatars</span>
-            {" "}with the classic Flash generator!
-            <br />
-            <span className="text-sm opacity-70">✨ Powered by Ruffle Flash Emulator ✨</span>
-          </p>
-
-          {/* Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mt-4">
-            <CuteBadge variant="pink">
-              <Sparkles className="w-3 h-3" /> Free
-            </CuteBadge>
-            <CuteBadge variant="mint">
-              <Smartphone className="w-3 h-3" /> Mobile Ready
-            </CuteBadge>
-            <CuteBadge variant="purple">
-              <Gamepad2 className="w-3 h-3" /> Classic Flash
-            </CuteBadge>
-          </div>
-        </div>
-
-        {/* Main Game Card */}
-        <div className="kawaii-card relative overflow-hidden">
+    <>
+      {/* Main Game Card */}
+      <div className="kawaii-card relative overflow-hidden">
           {/* Control Buttons - Above Player */}
           {!isFullscreen && (
             <div className="flex justify-end gap-2 mb-3 relative">
@@ -131,10 +82,10 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
               {/* Info Panel - Dropdown below button */}
               {showInfo && (
                 <div className="absolute top-full right-0 mt-2 z-30 kawaii-card p-4 max-w-xs animate-in slide-in-from-top-2 fade-in">
-                  <h3 className="font-bold mb-2 flex items-center gap-2" style={{ fontFamily: 'var(--font-kawaii)' }}>
+                  <p className="font-bold mb-2 flex items-center gap-2" style={{ fontFamily: 'var(--font-kawaii)' }}>
                     <Sparkle size={16} color="var(--kawaii-yellow)" />
                     About This Game
-                  </h3>
+                  </p>
                   <p className="text-sm mb-2" style={{ color: 'var(--kawaii-dark)' }}>
                     This is the classic Flash version of Square Face Generator, running on Ruffle - an open-source Flash emulator.
                   </p>
@@ -215,8 +166,12 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
 
         <KawaiiDivider icon="⭐" />
 
+        <h2 className="text-3xl font-bold text-center mb-6 mt-8 kawaii-title">
+          🎯 Classic Flash Highlights
+        </h2>
+
         {/* Feature Cards - Game Style */}
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="feature-card hover-bounce">
             <div className="text-4xl mb-3">📱</div>
             <h3 className="font-bold text-lg mb-2" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
@@ -305,9 +260,9 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
               >
                 <span className="text-3xl">{item.icon}</span>
                 <div>
-                  <h4 className="font-bold" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
+                  <h3 className="font-bold" style={{ fontFamily: 'var(--font-kawaii)', color: 'var(--kawaii-dark)' }}>
                     {item.title}
-                  </h4>
+                  </h3>
                   <p className="text-sm" style={{ color: 'var(--kawaii-dark)', opacity: 0.7 }}>
                     {item.desc}
                   </p>
@@ -387,7 +342,6 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
             </div>
           </div>
         </div>
-      </div>
 
       {/* Fullscreen Styles */}
       <style jsx global>{`
@@ -427,6 +381,6 @@ export function RuffleFlashGenerator({ swfUrl = "/square-face.swf" }: RuffleFlas
           background: var(--kawaii-dark) !important;
         }
       `}</style>
-    </section>
+    </>
   )
 }

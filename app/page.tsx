@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 import { RuffleFlashGenerator } from "@/components/ruffle-flash-generator"
+import { FloatingStar, KawaiiHeart, PixelStar, CuteBadge } from "@/components/kawaii-decorations"
+import { Gamepad2, Smartphone, Sparkles } from "lucide-react"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
@@ -35,16 +37,69 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-green-50">
       {/* Flash Generator Section - AvatarCarousel is embedded inside */}
-      <section id="generator">
-        <RuffleFlashGenerator swfUrl="/square-face.swf" />
+      <section id="generator" className="py-8 px-4 relative">
+        {/* Decorative Elements */}
+        <div className="absolute top-10 left-10 opacity-60 hidden md:block">
+          <FloatingStar size={32} color="var(--kawaii-yellow)" delay={0} />
+        </div>
+        <div className="absolute top-20 right-20 opacity-60 hidden md:block">
+          <FloatingStar size={24} color="var(--kawaii-pink)" delay={0.5} />
+        </div>
+        <div className="absolute bottom-40 left-20 opacity-40 hidden md:block">
+          <PixelStar size={28} />
+        </div>
+
+        <div className="max-w-4xl mx-auto relative">
+          {/* Header with Pixel Game Style */}
+          <div className="text-center mb-8">
+            {/* Game-style title bar */}
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="text-3xl">🎮</span>
+              <div className="flex gap-1">
+                <KawaiiHeart size={16} color="var(--kawaii-pink)" />
+                <KawaiiHeart size={16} color="var(--kawaii-pink)" />
+                <KawaiiHeart size={16} color="var(--kawaii-pink)" />
+              </div>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 pixel-title">
+              Square Face Generator
+            </h1>
+
+            <p
+              className="text-lg md:text-xl max-w-2xl mx-auto"
+              style={{ fontFamily: "var(--font-kawaii)", color: "var(--kawaii-dark)" }}
+            >
+              <span className="rainbow-text font-bold">Create cute avatars</span>
+              {" "}with the classic Flash generator!
+              <br />
+              <span className="text-sm opacity-70">✨ Powered by Ruffle Flash Emulator ✨</span>
+            </p>
+
+            {/* Badges */}
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              <CuteBadge variant="pink">
+                <Sparkles className="w-3 h-3" /> Free
+              </CuteBadge>
+              <CuteBadge variant="mint">
+                <Smartphone className="w-3 h-3" /> Mobile Ready
+              </CuteBadge>
+              <CuteBadge variant="purple">
+                <Gamepad2 className="w-3 h-3" /> Classic Flash
+              </CuteBadge>
+            </div>
+          </div>
+
+          <RuffleFlashGenerator swfUrl="/square-face.swf" />
+        </div>
       </section>
 
       {/* Nostalgic Hero Section */}
       <section id="about" className="max-w-4xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 to-green-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 to-green-600 bg-clip-text text-transparent">
             Square Face Generator - Free Icon Maker
-          </h1>
+          </h2>
           <p className="text-xl text-gray-700 leading-relaxed mb-4">
             The <strong className="text-amber-600">Square Face Icon Generator</strong> that defined the 2013 internet era is back.
           </p>
@@ -55,9 +110,9 @@ export default function Home() {
 
         {/* Nostalgia Memory Lane */}
         <div className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg mb-12">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+          <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
             ✨ A Trip Down Memory Lane ✨
-          </h2>
+          </h3>
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="leading-relaxed mb-4">
               Do you remember the golden age of the internet? When Flash Museum was our playground, and making cute pixel avatars was the highlight of our day? Those lazy afternoons clicking through hairstyles, eyes, and accessories to create the perfect square face icon...
@@ -323,7 +378,7 @@ export default function Home() {
               <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
                 <span className="text-green-500 text-xl">✓</span>
                 <div>
-                  <h4 className="font-bold text-gray-800">Best Picrew Alternative</h4>
+                  <h3 className="font-bold text-gray-800">Best Picrew Alternative</h3>
                   <p className="text-gray-600 text-sm">Similar cute avatar creation with more customization options. No account needed unlike some Picrew alternatives.</p>
                 </div>
               </div>
@@ -331,7 +386,7 @@ export default function Home() {
               <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
                 <span className="text-green-500 text-xl">✓</span>
                 <div>
-                  <h4 className="font-bold text-gray-800">More Categories Than Competitors</h4>
+                  <h3 className="font-bold text-gray-800">More Categories Than Competitors</h3>
                   <p className="text-gray-600 text-sm">12 comprehensive customization categories with 200+ options. More choices than most avatar makers.</p>
                 </div>
               </div>
@@ -339,7 +394,7 @@ export default function Home() {
               <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
                 <span className="text-green-500 text-xl">✓</span>
                 <div>
-                  <h4 className="font-bold text-gray-800">Unlimited Color Options</h4>
+                  <h3 className="font-bold text-gray-800">Unlimited Color Options</h3>
                   <p className="text-gray-600 text-sm">Unlike other square face icon generators, we offer complete color freedom. Pick any color for any element.</p>
                 </div>
               </div>
@@ -347,7 +402,7 @@ export default function Home() {
               <div className="flex items-start gap-4">
                 <span className="text-green-500 text-xl">✓</span>
                 <div>
-                  <h4 className="font-bold text-gray-800">Authentic Flash Museum Experience</h4>
+                  <h3 className="font-bold text-gray-800">Authentic Flash Museum Experience</h3>
                   <p className="text-gray-600 text-sm">This is the original h071019 creation, not a clone. Experience the authentic 2013 internet nostalgia.</p>
                 </div>
               </div>
