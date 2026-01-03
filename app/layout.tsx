@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { Fredoka, Nunito, Press_Start_2P } from "next/font/google"
 import { FloatingDecorations } from "@/components/kawaii-decorations"
 import { Navigation } from "@/components/navigation"
@@ -295,6 +296,7 @@ export default function RootLayout({
           {children}
         </div>
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   )
